@@ -22,15 +22,10 @@ pauseButton.addEventListener('click', function () {
     event.preventDefault();
 })
 
-
 audio.addEventListener("timeupdate", function () {
     let s = parseInt(audio.currentTime % 60);
     let m = parseInt((audio.currentTime / 60) % 60);
     currentTime.innerHTML = m + ':' + s;
-
-    var length = audio.duration;
-
-
 }, false);
 
 previousButton.addEventListener('click', function () {
