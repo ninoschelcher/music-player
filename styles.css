@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+:focus {
+    outline: none;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -121,43 +125,19 @@ button {
 }
 
 .play img {
-    padding: 10px;
+    padding: 13px 10px;
     margin-left: 5px;
+    width:48px;
 }
 
 .pause img {
-    padding: 12px 18px;
+    padding: 15px 18px 14px 17px;
     margin-left: -1px;
+    width:55px;
 }
 
-.stars {
-    position: absolute;
-    animation: moveStars 2s linear;
-}
-
-.star1 {
-    right: 3rem;
-    top: 2rem;
-}
-
-.star2 {
-    bottom: 1.5rem;
-    left: 1rem;
-}
-
-.star3 {
-    right: 1rem;
-    bottom: 4rem;
-}
-
-.star4 {
-    top: 2rem;
-    left: 1rem;
-}
-
-.star5 {
-    left: 11rem;
-    top: 8rem;
+.previous img, .next img {
+    width:25px;
 }
 
 .copyright {

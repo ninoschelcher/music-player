@@ -1,12 +1,10 @@
 const playButton = document.querySelector('.play');
 const pauseButton = document.querySelector('.pause');
 const previousButton = document.querySelector('.previous');
-const NextButton = document.querySelector('.next');
+const nextButton = document.querySelector('.next');
 let currentTime = document.querySelector(".current");
 let restTime = document.querySelector('.left');
 const audio = new Audio("netsky.mp3");
-
-
 
 playButton.addEventListener('click', function () {
     audio.play();
@@ -23,9 +21,9 @@ pauseButton.addEventListener('click', function () {
 })
 
 audio.addEventListener("timeupdate", function () {
-    let s = parseInt(audio.currentTime % 60);
-    let m = parseInt((audio.currentTime / 60) % 60);
-    currentTime.innerHTML = m + ':' + s;
+    let seconds = parseInt(audio.currentTime % 60);
+    let minutes = parseInt((audio.currentTime / 60) % 60);
+    currentTime.innerHTML = minutes + ':' + seconds;
 }, false);
 
 previousButton.addEventListener('click', function () {
@@ -33,9 +31,8 @@ previousButton.addEventListener('click', function () {
     audio.play();
 })
 
-if (audio.onended) {
-    playButton.style.display = "block";
-    pauseButton.style.display = "none";
-    audio.currentTime = 0;
-    console.log('yup');
-}
+nextButton.addEventListener('click', function () {
+    audio.currentTime= audio.currentTime + 5;
+})
+
+console.log(audio.volume)
