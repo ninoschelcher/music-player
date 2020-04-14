@@ -6,7 +6,9 @@ let currentTime = document.querySelector(".current");
 let restTime = document.querySelector('.left');
 const audio = new Audio("netsky.mp3");
 let progressBar = document.querySelector(".progressBar");
-
+let volumeSlider = document.querySelector(".slider");
+let volumeSliderContainer = document.querySelector(".sound-slider");
+const volumeButton = document.querySelector(".soundbutton");
 
 playButton.addEventListener('click', function () {
     audio.play();
@@ -24,11 +26,25 @@ pauseButton.addEventListener('click', function () {
 
 previousButton.addEventListener('click', function () {
     audio.currentTime = 0;
-    audio.play();
+    playButton.style.display = "none";
+    pauseButton.style.display = "block";
 })
 
 nextButton.addEventListener('click', function () {
     audio.currentTime = audio.currentTime + 5;
+})
+
+volumeButton.addEventListener('click', function() {
+    audio.volume = 0;
+})
+
+volumeButton.addEventListener("mouseover", function() {
+    volumeSliderContainer.classList.toggle("show");
+})
+
+volumeSlider.addEventListener("mousemove", function(e) {
+    var volume = e.target.value / 100;
+    audio.volume = volume;
 })
 
 audio.addEventListener("timeupdate", function () {
