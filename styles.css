@@ -76,7 +76,7 @@ body {
 
 .time .timestandings {
     color: #fff;
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 0 2.4rem;
     display: flex;
     justify-content: space-between;
@@ -84,15 +84,22 @@ body {
     font-size: .7rem;
 }
 
-.time::before {
+.time .progress {
+    width: 245px;
+    margin:0 auto;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    position: relative;
+}
+
+.time .progress .progressBar {
     position: absolute;
-    width: 243px;
-    background-color: #A1A0A0;
-    content: "";
-    left: 38px;
-    height: 4px;
-    top: -3px;
-    border-radius: 3px;
+    background-color: white;
+    height: 100%;
+    width: 0%;
+    border-radius: 4px;
+    transition: all 0.4s ease;
 }
 
 button {
@@ -105,6 +112,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top:1.5rem;
 }
 
 .pause {
