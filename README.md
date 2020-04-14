@@ -1,5 +1,5 @@
 # music-player
 simple music player
 
-![GitHub Logo](/images/musicplayerscreenshot.png)
+![GitHub Logo](/images/screenshot.png)
 
