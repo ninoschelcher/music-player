@@ -1,3 +1,4 @@
+/* Variable Declarations */
 const playButton = document.querySelector('.play');
 const pauseButton = document.querySelector('.pause');
 const previousButton = document.querySelector('.previous');
@@ -9,6 +10,8 @@ let volumeSlider = document.querySelector(".slider");
 let volumeSliderContainer = document.querySelector(".sound-slider");
 const volumeButton = document.querySelector(".soundbutton");
 const audio = new Audio("netsky.mp3");
+
+audio.volume = 0.5;
 
 /* Video Controls and Buttons */
 playButton.addEventListener('click', function () {
@@ -35,14 +38,13 @@ nextButton.addEventListener('click', function () {
     audio.currentTime = audio.currentTime + 5;
 })
 
-volumeButton.addEventListener('click', function () {
-    if (audio.volume > 1) {
-        audio.volume = 0;
-    }
+/* Volume Adjustments */
+volumeButton.addEventListener("mouseover", function () {
+    volumeSliderContainer.classList.add("show");
 })
 
-volumeButton.addEventListener("mouseover", function () {
-    volumeSliderContainer.classList.toggle("show");
+volumeSliderContainer.addEventListener("mouseleave", function () {
+    volumeSliderContainer.classList.remove("show");
 })
 
 volumeSlider.addEventListener("mousemove", function (e) {
@@ -65,12 +67,9 @@ function currentAudio(seconds) {
     return minutes + ":" + seconds;
 }
 
-function remainingAudio() {
-    var songDuration = parseInt(audio.duration),
-        currentAudioTime = parseInt(audio.currentTime),
-        audioTimeLeft = songDuration - currentAudioTime,
-
-    seconds = audioTimeLeft % 60;
+function remainingAudio(seconds) {
+    audioTimeLeft = parseInt(audio.duration) - parseInt(audio.currentTime),
+        seconds = audioTimeLeft % 60;
     minutes = Math.floor(audioTimeLeft / 60) % 60;
     seconds = seconds < 10 ? "0" + seconds : seconds;
     minutes = minutes < 10 ? "0" + minutes : minutes;
