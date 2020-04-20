@@ -4,7 +4,7 @@ Wanted to do something fun and 'simple' with javascript and one of my favourite 
 
 ![GitHub Logo](/images/screenshot.png)
 
-## H2 To Do
+## To Do
 
 * When I press the play button I want to see cool animations.
 * Make player dynamic so that there a multiple songs that can be played.
