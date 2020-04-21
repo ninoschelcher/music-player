@@ -3,63 +3,63 @@ const playButton = document.querySelector('.play');
 const pauseButton = document.querySelector('.pause');
 const previousButton = document.querySelector('.previous');
 const nextButton = document.querySelector('.next');
-let currentTime = document.querySelector(".current");
-let restTime = document.querySelector('.left');
-let progressBar = document.querySelector(".progressBar");
-let volumeSlider = document.querySelector(".slider");
-let volumeSliderContainer = document.querySelector(".sound-slider");
+const currentTime = document.querySelector(".current");
+const restTime = document.querySelector('.left');
+const progressBar = document.querySelector(".progressBar");
+const volumeSlider = document.querySelector(".slider");
+const volumeSliderContainer = document.querySelector(".sound-slider");
 const volumeButton = document.querySelector(".soundbutton");
 const audio = new Audio("netsky.mp3");
 
 audio.volume = 0.5;
 
 /* Video Controls and Buttons */
-playButton.addEventListener('click', function () {
+playButton.addEventListener('click', () => {
     audio.play();
     playButton.style.display = "none";
     pauseButton.style.display = "block";
     event.preventDefault();
 })
 
-pauseButton.addEventListener('click', function () {
+pauseButton.addEventListener('click', () => {
     audio.pause();
     playButton.style.display = "block";
     pauseButton.style.display = "none";
     event.preventDefault();
 })
 
-previousButton.addEventListener('click', function () {
+previousButton.addEventListener('click', () => {
     audio.currentTime = 0;
     playButton.style.display = "none";
     pauseButton.style.display = "block";
 })
 
-nextButton.addEventListener('click', function () {
+nextButton.addEventListener('click', () => {
     audio.currentTime = audio.currentTime + 5;
 })
 
 /* Volume Adjustments */
-volumeButton.addEventListener("mouseover", function () {
+volumeButton.addEventListener("mouseover", () => {
     volumeSliderContainer.classList.add("show");
 })
 
-volumeSliderContainer.addEventListener("mouseleave", function () {
+volumeSliderContainer.addEventListener("mouseleave", () => {
     volumeSliderContainer.classList.remove("show");
 })
 
-volumeSlider.addEventListener("mousemove", function (e) {
+volumeSlider.addEventListener("mousemove", (e) => {
     var volume = e.target.value / 100;
     audio.volume = volume;
 })
 
 /* Time updates */
-audio.addEventListener("timeupdate", function () {
+audio.addEventListener("timeupdate", () => {
     currentTime.innerHTML = currentAudio(audio.currentTime);
     restTime.innerHTML = remainingAudio();
     progressBar.style.width = audio.currentTime * 100 / audio.duration + "%";
 })
 
-function currentAudio(seconds) {
+const currentAudio = seconds => {
     minutes = Math.floor(seconds / 60);
     minutes = minutes >= 10 ? minutes : "0" + minutes;
     seconds = Math.floor(seconds % 60);
@@ -67,7 +67,7 @@ function currentAudio(seconds) {
     return minutes + ":" + seconds;
 }
 
-function remainingAudio(seconds) {
+const remainingAudio = seconds => {
     audioTimeLeft = parseInt(audio.duration) - parseInt(audio.currentTime),
         seconds = audioTimeLeft % 60;
     minutes = Math.floor(audioTimeLeft / 60) % 60;
