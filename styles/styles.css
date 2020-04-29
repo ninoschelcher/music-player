@@ -112,36 +112,43 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.5rem;
+    padding: 0 0 1.5rem;
+    margin-top:2.5rem;
 }
 
 .pause {
     display: none;
 }
 
-.pause {
-    border: 3px solid #fff;
-    border-radius: 100%;
-    margin: 0 1.2rem;
-}
-
 .play {
-    border: 3px solid #fff;
-    border-radius: 100%;
     display: flex;
+    position: relative;
     margin: 0 1.2rem;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding:0 1.2rem 0 2rem;
+  
 }
 
-.play img {
-    padding: 13px 10px;
-    margin-left: 5px;
-    width: 48px;
+.play::before {
+    background-image: url('../images/play.png');
+    width:35px;
+    content:'';
+    display: block;
+    background-repeat: no-repeat;
+    height:40px;
+    position:absolute;
 }
 
-.pause img {
-    padding: 15px 18px 14px 17px;
-    margin-left: -1px;
-    width: 55px;
+.play.pause::before {
+    background-image: url('../images/pause.png');
+    width:40px;
+    content:'';
+    background-repeat: no-repeat;
+    height:40px;
+    display: block;
+    position:absolute;
 }
 
 .previous img, .next img {
