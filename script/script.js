@@ -15,17 +15,13 @@ audio.volume = 0.5;
 
 /* Video Controls and Buttons */
 playButton.addEventListener('click', () => {
-    audio.play();
-    playButton.style.display = "none";
-    pauseButton.style.display = "block";
-    event.preventDefault();
-})
-
-pauseButton.addEventListener('click', () => {
-    audio.pause();
-    playButton.style.display = "block";
-    pauseButton.style.display = "none";
-    event.preventDefault();
+    if (playButton.classList.contains("pause")) {
+        playButton.classList.remove("pause");
+        audio.pause();
+    } else {
+        playButton.classList.add("pause")
+        audio.play();
+    }
 })
 
 previousButton.addEventListener('click', () => {
