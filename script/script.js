@@ -13,6 +13,22 @@ const audio = new Audio("netsky.mp3");
 
 audio.volume = 0.5;
 
+
+const songs = [
+    {
+      cover: "../images/netsky.png",
+      artist: "Netsky",
+      songName: "I see the future in your eyes",
+      audio: "../songs/netsky.mp3"
+    },
+    {
+      cover: "../images/hybridminds.PNG",
+      artist: "Hybrid Minds",
+      songName: "Bloodline - Hybrid Minds Remix",
+      audio: "../songs/bloodline.mp3"
+    }
+]
+
 /* Video Controls and Buttons */
 playButton.addEventListener('click', () => {
     if (playButton.classList.contains("pause")) {
@@ -43,7 +59,7 @@ volumeSliderContainer.addEventListener("mouseleave", () => {
     volumeSliderContainer.classList.remove("show");
 })
 
-volumeSlider.addEventListener("mousemove", (e) => {
+volumeSlider.addEventListener("mouseout", (e) => {
     var volume = e.target.value / 100;
     audio.volume = volume;
 })
